@@ -1,0 +1,100 @@
+/: 
+ - change #剪切板将\置换为/
+
+L: 
+ - Up2Low #剪切板小写
+
+U: 
+ - Low2Up #剪切板大写
+
+\: 
+ - change #剪切板将\置换为/
+
+l: 
+ - Up2Low #剪切板小写
+
+u:
+ - Low2Up #剪切板大写
+
+reip: #重置电脑ip
+ - cmd #执行cmd命令
+ - ipconfig/release #释放ip
+ - ipconfig/renew #刷新ip
+
+q:
+ - quite #退出程序
+
+welcome:
+ - welcome #加载欢迎文档
+
+help:
+ - help #加载帮助文档
+
+reload:
+ - reload #重新加载配置文件
+
+zs:
+ - count_words #统计剪切板字数
+
+zfs:
+ - count_characters #统计剪切板字符数
+
+poweroff 3: #三小时后关机
+ - cmd
+ - echo "三小时后关机"
+ - shutdown -s -t 10800
+
+poweroff 2: #2小时后关机
+ - cmd
+ - echo "三小时后关机"
+ - shutdown -s -t 7200
+
+poweroff 1: #1小时后关机
+ - cmd
+ - echo "三小时后关机"
+ - shutdown -s -t 3600
+
+no bye: #取消关机
+ - cmd
+ - echo "取消定时关机"
+ - shutdown -a
+
+reboot: #重启
+ - cmd
+ - echo "立即重启"
+ - shutdown -r -t 00
+
+clear: # 清理屏幕信息
+ - cmd
+ - cls
+
+clean: #清理系统垃圾
+ - cmd
+ - echo off
+ - echo 正在清除系統垃圾檔案中，請稍候......
+ - echo Angus福利社 http://wuangus.cc
+ - del /f /s /q %systemdrive%\*.tmp
+ - del /f /s /q %systemdrive%\*._mp
+ - del /f /s /q %systemdrive%\*.log
+ - del /f /s /q %systemdrive%\*.gid
+ - del /f /s /q %systemdrive%\*.chk
+ - del /f /s /q %systemdrive%\*.old
+ - del /f /s /q %systemdrive%\recycled\*.*
+ - del /f /s /q %windir%\*.bak
+ - del /f /s /q %windir%\prefetch\*.*
+ - del /f /q %userprofile%\cookies\*.*
+ - del /f /q %userprofile%\recent\*.*
+ - del /f /s /q "%userprofile%\Local Settings\Temporary Internet Files\*.*"
+ - del /f /s /q "%userprofile%\Local Settings\Temp\*.*"
+ - del /f /s /q "%userprofile%\recent\*.*"
+ - DEL /S /F /Q "%systemroot%\Temp\*.*"
+ - DEL /S /F /Q "%AllUsersProfile%\「開始」功能表\程式集\Windows Messenger.lnk"
+ - RD /S /Q %windir%\temp & md %windir%\temp
+ - RD /S /Q "%userprofile%\Local Settings\Temp"
+ - MD "%userprofile%\Local Settings\Temp"
+ - RD /S /Q "%systemdrive%\Program Files\Temp"
+ - MD "%systemdrive%\Program Files\Temp"
+ - RD /S /Q "%systemdrive%\d"
+ - net user aspnet /delete
+ - cleanmgr /sagerun:99
+ - echo 清除系統垃圾檔案完成！

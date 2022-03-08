@@ -1,0 +1,18 @@
+#操作：方法类型 
+# Clipboard方法：读取剪切板的内容作为输入。
+# cmd方法：读取用户设置作为输入
+# without_input方法：不需要输入
+# combind_conmand方法：上面命令的组合
+Up2Low: Clipboard #剪切板转小写
+Low2Up: Clipboard #剪切板转大写
+change: Clipboard #剪切板\转/
+count_words: Clipboard #统计剪切板字数
+count_characters: Clipboard #统计剪切板字符数
+OpenExe: cmd #打开软件
+cmd: cmd #执行cmd命令
+script: cmd #执行python脚本
+quite: without_input #退出程序
+reload: without_input # 重新加载配置文件
+welcome: without_input # 加载欢迎文档
+help: without_input # 加载帮助文档
+combind_conmand: combind_conmand #进行复合命令操作

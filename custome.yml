@@ -1,0 +1,53 @@
+# 可以在该配置文件中自定义命令和操作
+# 自定义的命令格式为
+
+#命令:
+# - 方法
+# - 参数（可选）
+
+#例如
+/: 
+ - change #剪切板将\置换为/
+
+read: #阅读模式
+ - OpenExe #打开软件（通过一个命令，同时打开多个软件）
+ - C:\Program Files\Mozilla Firefox\firefox.exe
+ - F:\1.software\Typora\Typora.exe
+
+reip: #重置电脑ip
+ - cmd #执行cmd命令（通过一个命令，执行多行cmd语句）
+ - ipconfig/release #释放ip
+ - ipconfig/renew #刷新ip
+
+t: 
+ - script #执行python脚本 （通过一个命令执行制定脚本）
+ - test.py #python脚本
+ - 太阳花的绘制.py
+ - CSDN心形.py
+
+z:
+ - combind_conmand # 组合命令 （通过一个命令，将已有的命令一起执行）
+ - t
+ - reip
+
+ck:
+ - script
+ - auto_checkin.py
+
+login:
+ - script
+ - auto_login.py
+
+t 1:
+ - cmd
+ - echo "测试1成功"
+
+t 2:
+ - cmd
+ - echo "测试2成功"
+
+t 3:
+ - combind_conmand # 组合命令 （通过一个命令，将已有的命令一起执行）
+ - t 1
+ - t 2
+
