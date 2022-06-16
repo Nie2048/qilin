@@ -6,18 +6,10 @@
 # - 参数（可选）
 
 #例如
-/: 
- - change #剪切板将\置换为/
-
 read: #阅读模式
  - OpenExe #打开软件（通过一个命令，同时打开多个软件）
  - C:\Program Files\Mozilla Firefox\firefox.exe
  - F:\1.software\Typora\Typora.exe
-
-reip: #重置电脑ip
- - cmd #执行cmd命令（通过一个命令，执行多行cmd语句）
- - ipconfig/release #释放ip
- - ipconfig/renew #刷新ip
 
 t: 
  - script #执行python脚本 （通过一个命令执行制定脚本）

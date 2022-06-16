@@ -1,6 +1,14 @@
-import string
+#定义各种剪切板文本操作方法
+#判断剪贴板的内容是否和上一次不相同，是则返回TRUE，否则返回FALSE
+def copy_notsame(input_data,old_input):
+    if input_data != old_input:
+        return True
+    else:
+        return False
+
 #统计剪切板字数
 def count_words(Clipboard_text):
+    import string
     count = 0
     for i in range(0,len(Clipboard_text)):
         if Clipboard_text[i] in string.ascii_letters:
