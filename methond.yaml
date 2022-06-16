@@ -18,3 +18,4 @@ reload: without_input # 重新加载配置文件
 welcome: without_input # 加载欢迎文档
 help: without_input # 加载帮助文档
 combind_conmand: combind_conmand #进行复合命令操作
+test : test #使用自建模块

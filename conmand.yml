@@ -98,3 +98,11 @@ clean: #清理系统垃圾
  - net user aspnet /delete
  - cleanmgr /sagerun:99
  - echo 清除系統垃圾檔案完成！
+
+hello: # 清理屏幕信息
+ - test
+ - hello
+
+A-Z: #按照字母顺序排序
+ - test
+ - sortA_Z

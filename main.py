@@ -73,7 +73,7 @@ def combind_conmand(input):
     for i in input[1:]:
         conmand_analys(i)
 
-#判断命令的来源，及执行方法
+#判断命令的来源
 def select_methond(input_conmand):
     if input_conmand in custome:
         c = custome[input_conmand]
@@ -101,21 +101,41 @@ def sys_parser(c):
     except:
         print("执行cmd命令失败")
 
+#test方法命令解析器
+def test_parser(c):
+    try:
+        print("正在执行test脚本中的{}命令".format(c[1]))
+        file_name = current_path +"/test_mode/"+ c[0] + ".py"
+        func_name = c[1]
+        with open(file_name, "rb") as f:
+            source_code = f.read()
+        exec_code = compile(source_code, file_name, "exec")
+        scope = {}
+        exec(exec_code, scope)
+        f = scope.get(func_name, None)
+        f()
+    except:
+        print("执行test命令失败")
+    
 
 #定义命令分流装置
 def conmand_analys(input_conmand):
-    #conmand
-    c = select_methond(input_conmand)
-    #methonds
-    m = methonds[c[0]]
-    if m in ('Clipboard'):
-        cipboard_parser(c)
-    elif m in ("sys"): #
-        sys_parser(c)
-    elif m in ('combind_conmand'):
-        combind_conmand(c)
-    else:
-        print('暂时没有此功能，可向开发者反馈')
+    try:#conmand
+        c = select_methond(input_conmand)
+        #methonds
+        m = methonds[c[0]]
+        if m in ('Clipboard'):
+            cipboard_parser(c)
+        elif m in ("sys"): #
+            sys_parser(c)
+        elif m in ('combind_conmand'):
+            combind_conmand(c)
+        elif m in ('test'):
+            test_parser(c)
+        else:
+            print('暂时没有此功能，可向开发者反馈')
+    except:
+        print('命令分流错误')
 
 #定义初始化函数
 def initial():
@@ -138,7 +158,7 @@ def main():
         else:
             #执行预先定义的快捷命令
             if (input_conmand in conmand) or (input_conmand in custome):
-                print('开始执行快捷命令\n')
+                print('开始解析快捷命令\n')
                 try:
                     conmand_analys(input_conmand)
                 except:
@@ -149,3 +169,4 @@ def main():
 
 
 main()
+
